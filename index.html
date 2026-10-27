@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Halcyon Bay: twelve private villas and suites on a quiet Goa beach. Infinity pool, spa, yoga and farm-to-table dining.">
+<title>Halcyon Bay · Beach Resort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E2A33;--sand:#F7F0E6;--aqua:#38C1B4;--coral:#FF7A59;
+--gbg:rgba(255,255,255,.38);--gbd:rgba(255,255,255,.7);--ease:cubic-bezier(.2,.8,.2,1);box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 17px/1.65 'Manrope',system-ui,sans-serif;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.03em;line-height:1;margin:0}
+h1{font-size:clamp(3.2rem,8.4vw,7rem);font-weight:400}
+h2{font-size:clamp(2.3rem,5vw,3.8rem)}
+h3{font-size:1.5rem;letter-spacing:-.02em}
+p{margin:0 0 1em;max-width:48ch}
+a{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:100px 0}
+.ph{background:linear-gradient(135deg,#9ADBD3,#F7D3B5)}
+/* ambient */
+.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.ambient i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 22s ease-in-out infinite alternate}
+.ambient i:nth-child(1){width:46vw;height:46vw;background:var(--aqua);top:-10%;left:-10%}
+.ambient i:nth-child(2){width:38vw;height:38vw;background:#FFC09A;bottom:-12%;right:-8%;animation-duration:28s}
+.ambient i:nth-child(3){width:30vw;height:30vw;background:#9FD8F0;top:40%;left:45%;animation-duration:34s}
+@keyframes float{to{transform:translate(8vw,6vh) scale(1.15)}}
+.prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--aqua),var(--coral));z-index:50}
+/* glass */
+.glass{background:var(--gbg);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border:1px solid var(--gbd);border-radius:30px;box-shadow:0 24px 50px -28px rgba(14,42,51,.4),inset 0 1px 0 rgba(255,255,255,.75);position:relative;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.glass::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.6),transparent 62%);opacity:0;transition:opacity .5s;pointer-events:none}
+.glass:hover::after{opacity:1}
+.lift:hover{transform:translateY(-8px);box-shadow:0 34px 60px -28px rgba(14,42,51,.5),inset 0 1px 0 rgba(255,255,255,.8)}
+.rv.in.lift:hover{transform:translateY(-8px);box-shadow:0 34px 60px -28px rgba(14,42,51,.5),inset 0 1px 0 rgba(255,255,255,.8)}
+.dk{--gbg:rgba(255,255,255,.14);--gbd:rgba(255,255,255,.35);color:#fff}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(255,255,255,.85)}.dk{background:rgba(14,42,51,.7)}}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 30px;font:600 1rem 'Manrope',sans-serif;text-decoration:none;cursor:pointer;background:var(--coral);color:var(--ink);box-shadow:0 12px 26px -12px rgba(255,122,89,.9);transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 34px -14px rgba(255,122,89,.9)}
+.btn.g{background:rgba(255,255,255,.4);box-shadow:inset 0 0 0 1px var(--gbd);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+/* nav */
+.nav{position:fixed;z-index:40;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 26px;border-radius:999px;overflow:visible;transition:top .4s var(--ease),background .4s}
+.nav.sc{--gbg:rgba(255,255,255,.62)}
+.nav:hover{transform:translateX(-50%)}
+.logo{font:600 1.45rem/1 'Outfit',sans-serif;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:18px;height:18px;border-radius:50%;background:conic-gradient(var(--aqua),var(--coral),var(--aqua));box-shadow:0 0 0 4px rgba(255,255,255,.5)}
+.links{display:flex;align-items:center;gap:4px}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;padding:9px 16px;border-radius:999px;transition:background .3s,color .3s}
+.links a:hover,.links a.on{background:rgba(255,255,255,.55)}
+.links .btn{padding:10px 24px;margin-left:6px}
+.nav:not(.sc) .links a:not(.btn),.nav:not(.sc) .logo,.nav:not(.sc) .burger{color:#fff}
+.burger{display:none;background:rgba(255,255,255,.4);border:1px solid var(--gbd);border-radius:999px;color:var(--ink);font:600 .95rem 'Manrope',sans-serif;padding:10px 20px;cursor:pointer}
+/* hero */
+.hero{position:relative;min-height:max(100svh,720px);display:flex;align-items:flex-end;padding:140px 0 56px;color:#fff;background:linear-gradient(160deg,#0B4D57,#2FA9A5 52%,#FFC09A);overflow:hidden}
+.hero>img{position:absolute;inset:-6% 0;width:100%;height:112%;will-change:transform}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,40,48,.35),rgba(8,40,48,.05) 40%,rgba(8,40,48,.6));z-index:1}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.pill{display:inline-block;padding:8px 18px;border-radius:999px;font-weight:600;font-size:.9rem;margin-bottom:26px}
+.hero p.lead{font-size:1.2rem;margin:24px 0 38px;max-width:46ch}
+.book{display:grid;grid-template-columns:1fr 1fr .8fr auto;gap:10px;align-items:end;padding:14px 14px 14px 24px;border-radius:999px;max-width:860px;overflow:visible}
+.book label{display:grid;gap:2px;font-size:.78rem;font-weight:600;opacity:.9}
+.book input,.book select{background:transparent;border:0;color:#fff;font:500 1.05rem 'Manrope',sans-serif;padding:4px 0;color-scheme:dark;min-width:0}
+.book select option{color:var(--ink)}
+.book input:focus,.book select:focus{outline:none}
+.hint{position:absolute;right:28px;bottom:40px;z-index:2;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:10px}
+.hint i{width:1px;height:46px;background:#fff;transform-origin:top;animation:drop 2s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--i,0)*100ms)}
+.rv.in{opacity:1;transform:none}
+.head{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-bottom:48px}
+.head p{margin:0}
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.aimg{aspect-ratio:4/5;border-radius:200px 200px 30px 30px;overflow:hidden;position:relative}
+.aimg img{transition:transform 1.4s var(--ease)}.aimg:hover img{transform:scale(1.07)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.stats div{padding:20px 22px}
+.stats b{display:block;font:500 2.8rem/1 'Outfit',sans-serif;letter-spacing:-.04em}
+.stats span{font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips span{padding:9px 18px;border-radius:999px;font-weight:500;font-size:.92rem;background:var(--gbg);border:1px solid var(--gbd);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .35s var(--ease),background .35s}
+.chips span:hover{transform:translateY(-3px);background:rgba(255,255,255,.7)}
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{padding:34px 30px}
+.feat svg{width:46px;height:46px;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:60px;transition:transform .6s var(--ease)}
+.feat:hover svg{transform:rotate(-8deg) scale(1.12)}
+.feat p{margin:10px 0 0;font-size:.97rem}
+/* rooms */
+.tabs{position:relative;display:inline-flex;padding:6px;border-radius:999px;gap:2px;overflow:visible}
+.tabs button{position:relative;z-index:1;background:none;border:0;font:600 .98rem 'Manrope',sans-serif;color:var(--ink);padding:11px 24px;border-radius:999px;cursor:pointer}
+.ind{position:absolute;top:6px;bottom:6px;left:0;width:0;border-radius:999px;background:#fff;box-shadow:0 8px 20px -10px rgba(14,42,51,.5);transition:left .5s var(--ease),width .5s var(--ease)}
+.room{display:grid;grid-template-columns:1.2fr .8fr;gap:0;margin-top:30px;min-height:460px;animation:swap .8s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(22px) scale(.985)}}
+.room .im{overflow:hidden}.room .im img{transition:transform 1.4s var(--ease)}.room:hover .im img{transform:scale(1.06)}
+.room .tx{padding:44px 40px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+.room .price{font:500 2.6rem/1 'Outfit',sans-serif;letter-spacing:-.04em}.room .price small{font:500 1rem 'Manrope',sans-serif}
+.room ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.room li{padding:7px 14px;border-radius:999px;font-size:.88rem;font-weight:500;background:rgba(255,255,255,.55);border:1px solid var(--gbd)}
+/* experiences */
+.scr{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 24px 36px;margin:0 -24px;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+.exp{flex:0 0 300px;scroll-snap-align:start;padding:12px 12px 24px}
+.exp .im{aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;margin-bottom:18px}
+.exp .im img{transition:transform 1s var(--ease)}.exp:hover .im img{transform:scale(1.1)}
+.exp h3,.exp p{padding:0 10px}.exp p{margin:8px 0 0;font-size:.95rem}
+.arrows{display:flex;gap:10px}
+.arrows button{width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:1.3rem;color:var(--ink);border:1px solid var(--gbd);background:var(--gbg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .35s var(--ease),background .35s}
+.arrows button:hover{background:#fff;transform:scale(1.1)}
+/* reviews */
+.rev{position:relative;padding:60px 54px;text-align:center;max-width:860px;margin:0 auto}
+.qs{display:grid}
+.qs blockquote{grid-area:1/1;margin:0;opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease);pointer-events:none}
+.qs blockquote.on{opacity:1;transform:none;pointer-events:auto}
+.qs q{display:block;font:400 clamp(1.5rem,3.2vw,2.3rem)/1.25 'Outfit',sans-serif;letter-spacing:-.02em;quotes:none;margin-bottom:22px}
+.dots{display:flex;gap:10px;justify-content:center;margin-top:34px}
+.dots button{width:10px;height:10px;border-radius:99px;border:0;background:rgba(14,42,51,.25);cursor:pointer;padding:0;transition:width .5s var(--ease),background .5s}
+.dots button.on{width:34px;background:var(--coral)}
+/* faq */
+.faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+.fq{border-radius:24px}
+.fq button{width:100%;background:none;border:0;text-align:left;font:500 1.25rem 'Outfit',sans-serif;color:var(--ink);padding:22px 28px;display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+.fq button::after{content:'+';font-size:1.7rem;line-height:1;transition:transform .5s var(--ease)}
+.fq.o button::after{transform:rotate(135deg)}
+.fq .bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.fq.o .bd{grid-template-rows:1fr}
+.fq .bd div{overflow:hidden}.fq .bd p{padding:0 28px 24px;margin:0}
+/* footer */
+footer{padding:40px 0 30px}
+.ft{padding:50px 46px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+.ft h3{font-size:1.15rem;margin-bottom:12px}
+.ft nav a{display:block;text-decoration:none;padding:2px 0;transition:transform .3s var(--ease)}.ft nav a:hover{transform:translateX(6px)}
+.nl{display:flex;gap:8px;margin-top:14px}
+.nl input{flex:1;min-width:0;background:rgba(255,255,255,.55);border:1px solid var(--gbd);border-radius:999px;padding:13px 20px;font:inherit;color:var(--ink)}
+.copy{text-align:center;font-size:.85rem;opacity:.7;margin-top:22px}
+/* dialog + toast */
+dialog{border:1px solid var(--gbd);padding:0;width:min(480px,calc(100% - 28px));border-radius:32px;background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);color:var(--ink);box-shadow:0 40px 80px -30px rgba(14,42,51,.6)}
+dialog[open]{animation:swap .6s var(--ease)}
+dialog::backdrop{background:rgba(14,42,51,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog form{padding:34px;display:grid;gap:16px}
+dialog label{display:grid;gap:6px;font-weight:600;font-size:.88rem}
+dialog input,dialog select,dialog textarea{background:rgba(255,255,255,.7);border:1px solid var(--gbd);border-radius:16px;padding:12px 16px;font:inherit;color:var(--ink)}
+dialog input:focus,dialog textarea:focus{outline:2px solid var(--aqua)}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;z-index:60;padding:16px 28px;border-radius:999px;font-weight:600;transition:transform .6s var(--ease),opacity .6s;pointer-events:none;max-width:calc(100% - 28px);text-align:center}
+.toast.s{transform:translate(-50%,0);opacity:1}
+@media (max-width:980px){
+.burger{display:block}
+.links{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;padding:12px;border-radius:28px;background:rgba(255,255,255,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--gbd)}
+.links.open{display:flex;animation:swap .5s var(--ease)}
+.links a:not(.btn){color:var(--ink)!important;padding:14px 18px}.links .btn{margin:6px 0 0}
+.book{grid-template-columns:1fr 1fr;border-radius:30px;padding:20px 22px;gap:16px}.book .btn{grid-column:1/-1}
+.hint{display:none}.about,.room,.ft{grid-template-columns:1fr}
+.feats{grid-template-columns:1fr}.feat svg{margin-bottom:30px}
+.aimg{max-width:400px}.room .im{aspect-ratio:4/3}.rev{padding:44px 26px}
+section{padding:72px 0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="prog" id="prog"></div>
+
+<header class="nav glass dk" id="nav">
+<a class="logo" href="#top"><i></i>Halcyon Bay</a>
+<nav class="links" id="links" aria-label="Main"><a href="#about">The bay</a><a href="#rooms">Stay</a><a href="#experiences">Experiences</a><a href="#reviews">Guests</a><a href="#faq">FAQ</a><a class="btn" href="#book">Book</a></nav>
+<button class="burger" aria-expanded="false" aria-controls="links">Menu</button>
+</header>
+
+<main id="top">
+<div class="hero">
+<img id="hbg" src="images/hero.jpg" alt="" fetchpriority="high" onerror="this.remove()">
+<div class="wrap">
+<span class="pill glass dk">Gokarna coast · 12 private villas</span>
+<h1>Slow days on<br>a quiet bay.</h1>
+<p class="lead">A small beachfront resort with an infinity pool, a spa under the palms and breakfast that arrives when you are ready for it.</p>
+<form class="book glass dk" id="book" autocomplete="off">
+<label>Check in<input type="date" id="ci" required></label>
+<label>Check out<input type="date" id="co" required></label>
+<label>Guests<select id="gu"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label>
+<button class="btn" type="submit">Check availability</button>
+</form>
+</div>
+<div class="hint" aria-hidden="true">Scroll<i></i></div>
+</div>
+
+<section id="about">
+<div class="wrap about">
+<div class="aimg ph rv"><img src="images/about.jpg" alt="Aerial view of the resort and beach" loading="lazy" onerror="this.remove()"></div>
+<div>
+<h2 class="rv">A bay with room to breathe</h2>
+<p class="rv" style="--i:1;margin-top:24px">Halcyon Bay has twelve villas and suites, a long private beach and nothing that needs to be rushed. Wake to the tide, swim in the pool, have a massage, or do nothing at all.</p>
+<div class="stats rv" style="--i:2">
+<div class="glass lift"><b data-to="12">0</b><span>Villas and suites</span></div>
+<div class="glass lift"><b data-to="9">0</b><span>Years by the sea</span></div>
+<div class="glass lift"><b>4.9</b><span>Guest rating</span></div>
+</div>
+<div class="chips rv" style="--i:3"><span>Infinity pool</span><span>Private beach</span><span>Yoga deck</span><span>Ayurvedic spa</span><span>Kayaks</span><span>Farm-to-table</span><span>Airport transfers</span></div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap feats">
+<div class="glass lift feat rv"><svg viewBox="0 0 48 48"><path d="M4 30c5-5 8 5 13 0s8 5 13 0 8 5 14 0M4 38c5-5 8 5 13 0s8 5 13 0 8 5 14 0"/><circle cx="24" cy="14" r="6"/></svg><h3>Right on the sand</h3><p>Every villa opens onto the beach or the pool. You hear the sea from the bed.</p></div>
+<div class="glass lift feat rv" style="--i:1"><svg viewBox="0 0 48 48"><path d="M24 42c-12-6-16-16-12-30 10 0 20 6 20 18 0 4-2 9-8 12zM24 42V22"/></svg><h3>Slow, local food</h3><p>Our kitchen cooks what the farm and fishermen bring that morning. The menu changes daily.</p></div>
+<div class="glass lift feat rv" style="--i:2"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="8"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"/></svg><h3>Unhurried days</h3><p>Sunrise yoga, spice-farm lunches, sunset sails. Join in or stay put, entirely your call.</p></div>
+</div>
+</section>
+
+<section id="rooms">
+<div class="wrap">
+<div class="head rv"><h2>Where you<br>will stay</h2><div class="tabs glass" id="tabs" role="tablist" aria-label="Room types"><span class="ind" id="ind"></span></div></div>
+<div id="room"></div>
+</div>
+</section>
+
+<section id="experiences">
+<div class="wrap">
+<div class="head rv"><h2>Things to<br>do (or not)</h2><div class="arrows"><button id="pv" aria-label="Previous">&larr;</button><button id="nx" aria-label="Next">&rarr;</button></div></div>
+<div class="scr" id="scr">
+<article class="glass lift exp"><div class="im ph"><img src="images/exp-1.jpg" alt="Yoga on the deck at sunrise" loading="lazy" onerror="this.remove()"></div><h3>Sunrise yoga</h3><p>Start gently on the open deck as the sky turns gold.</p></article>
+<article class="glass lift exp"><div class="im ph"><img src="images/exp-2.jpg" alt="Kayaking on the estuary" loading="lazy" onerror="this.remove()"></div><h3>Estuary kayak</h3><p>Paddle through mangroves with a local guide at dawn.</p></article>
+<article class="glass lift exp"><div class="im ph"><img src="images/exp-3.jpg" alt="Lunch at a spice farm" loading="lazy" onerror="this.remove()"></div><h3>Spice farm lunch</h3><p>A long table, a family kitchen and recipes from the hills.</p></article>
+<article class="glass lift exp"><div class="im ph"><img src="images/exp-4.jpg" alt="Ayurvedic massage" loading="lazy" onerror="this.remove()"></div><h3>Ayurvedic ritual</h3><p>Warm oils and a ninety-minute treatment in the garden spa.</p></article>
+<article class="glass lift exp"><div class="im ph"><img src="images/exp-5.jpg" alt="Sailboat at sunset" loading="lazy" onerror="this.remove()"></div><h3>Sunset sail</h3><p>Drift along the coast with drinks and the last of the light.</p></article>
+</div>
+</div>
+</section>
+
+<section id="reviews" style="padding-top:40px">
+<div class="wrap">
+<div class="glass rev rv">
+<div class="qs" id="qs">
+<blockquote class="on"><q>The most relaxed I have been in years. Nobody rushed us, ever.</q><b>Aanya &amp; Rohan</b>, stayed 5 nights</blockquote>
+<blockquote><q>Breakfast on the deck with the tide coming in is hard to beat. We are already planning to return.</q><b>The Mehta family</b>, stayed 7 nights</blockquote>
+<blockquote><q>Small, beautiful and run by people who clearly love it. The spa alone was worth the trip.</q><b>Sofia</b>, stayed 4 nights</blockquote>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+</div>
+</section>
+
+<section id="faq" style="padding-top:40px">
+<div class="wrap">
+<div class="head rv" style="justify-content:center;text-align:center"><h2>Good to know</h2></div>
+<div class="faq">
+<div class="glass fq rv"><button aria-expanded="false">When is the best time to visit?</button><div class="bd"><div><p>October to March is dry and sunny. The monsoon months are quieter, greener and much cheaper.</p></div></div></div>
+<div class="glass fq rv" style="--i:1"><button aria-expanded="false">How do I get here?</button><div class="bd"><div><p>We are a 90-minute drive from Goa airport. We can arrange a private transfer for you.</p></div></div></div>
+<div class="glass fq rv" style="--i:2"><button aria-expanded="false">Are children welcome?</button><div class="bd"><div><p>Yes. Our villas sleep four, and we offer a kids&rsquo; menu and shallow pool hours.</p></div></div></div>
+<div class="glass fq rv" style="--i:3"><button aria-expanded="false">What is the cancellation policy?</button><div class="bd"><div><p>Free cancellation up to 14 days before arrival. After that, the first night is non-refundable.</p></div></div></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="glass ft rv">
+<div><a class="logo" href="#top" style="color:var(--ink)"><i></i>Halcyon Bay</a><p style="margin-top:16px">Slow days on a quiet bay.</p>
+<form class="nl" id="nl"><input type="email" required placeholder="Your email" aria-label="Email"><button class="btn" type="submit">Join</button></form></div>
+<div><h3>Explore</h3><nav><a href="#about">The bay</a><a href="#rooms">Stay</a><a href="#experiences">Experiences</a><a href="#reviews">Guests</a><a href="#faq">FAQ</a></nav></div>
+<div><h3>Find us</h3><p>Kudle Beach Road, Gokarna, Karnataka<br>+91 98765 43210<br>stay@halcyonbay.example</p></div>
+</div>
+<div class="copy">© 2026 Halcyon Bay. A sample website.</div>
+</div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+<form method="dialog" id="rf">
+<h3 id="dt">Reserve</h3>
+<label>Your name<input name="n" required autocomplete="name"></label>
+<label>Email<input name="e" type="email" required autocomplete="email"></label>
+<label>Special requests<textarea name="m" rows="2"></textarea></label>
+<div style="display:flex;gap:10px;justify-content:flex-end"><button class="btn g" type="button" id="cl" style="color:var(--ink)">Cancel</button><button class="btn" type="submit">Send request</button></div>
+</form>
+</dialog>
+<div class="toast glass dk" id="toast" role="status" style="--gbg:rgba(14,42,51,.7)"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* menu + scrollspy */
+const bg=$('.burger'),lk=$('#links');
+bg.onclick=()=>{const o=lk.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.textContent=o?'Close':'Menu'};
+$$('#links a').forEach(a=>a.addEventListener('click',()=>{lk.classList.remove('open');bg.textContent='Menu'}));
+const nl=$$('#links a:not(.btn)');
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)nl.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+nl.forEach(l=>{const s=$(l.getAttribute('href'));s&&spy.observe(s)});
+/* scroll effects */
+const nav=$('#nav'),prog=$('#prog'),hbg=$('#hbg');let tk=false;
+function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+nav.classList.toggle('sc',y>60);nav.classList.toggle('dk',y<=60);
+prog.style.transform='scaleX('+(h>0?y/h:0)+')';
+if(hbg&&!rm&&y<innerHeight*1.3)hbg.style.transform='translateY('+(y*.25)+'px)';tk=false}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+/* reveal */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add('in');rio.unobserve(t);if(t.classList.contains('lift'))setTimeout(()=>{t.style.transitionDelay='0s';t.style.transition='transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s cubic-bezier(.2,.8,.2,1)'},1400)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+$$('.rv').forEach(el=>rm?el.classList.add('in'):rio.observe(el));
+/* glass glow follows pointer */
+document.addEventListener('pointermove',e=>{const g=e.target.closest&&e.target.closest('.glass');if(!g)return;const r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+/* counters */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,to=+el.dataset.to,t0=performance.now();
+if(rm){el.textContent=to;return}
+const f=t=>{const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+$$('[data-to]').forEach(el=>cio.observe(el));
+/* toast */
+const tEl=$('#toast');let tt;
+function toast(m){tEl.textContent=m;tEl.classList.add('s');clearTimeout(tt);tt=setTimeout(()=>tEl.classList.remove('s'),4200)}
+/* booking */
+const iso=d=>d.toISOString().slice(0,10),addD=n=>{const d=new Date();d.setDate(d.getDate()+n);return iso(d)};
+$('#ci').min=$('#co').min=addD(0);$('#ci').value=addD(14);$('#co').value=addD(17);
+$('#ci').onchange=()=>{if($('#co').value<=$('#ci').value){const d=new Date($('#ci').value);d.setDate(d.getDate()+1);$('#co').value=iso(d)}};
+$('#book').onsubmit=e=>{e.preventDefault();const n=Math.round((new Date($('#co').value)-new Date($('#ci').value))/864e5);
+if(n<=0){toast('Check-out must be after check-in.');return}
+toast('Good news: villas are free for '+n+' night'+(n>1?'s':'')+', '+$('#gu').value+'.');setTimeout(()=>$('#rooms').scrollIntoView({behavior:rm?'auto':'smooth'}),900)};
+/* rooms */
+const RM=[{t:'Villas',n:'Cliff Villa',d:'Two bedrooms above the bay, with a private plunge pool and a deck made for long evenings.',f:['Plunge pool','Sea view','Sleeps 4','Private butler'],p:28000,i:'room-1.jpg'},
+{t:'Suites',n:'Horizon Suite',d:'A light-filled suite with a king bed, a soaking tub and a balcony that looks straight out to sea.',f:['Ocean balcony','Soaking tub','King bed','Sleeps 2'],p:16500,i:'room-2.jpg'},
+{t:'Garden rooms',n:'Palm Garden Room',d:'A calm room tucked among the palms, with a terrace, an outdoor shower and a short walk to the beach.',f:['Garden terrace','Outdoor shower','Sleeps 2','Beach in 2 min'],p:9500,i:'room-3.jpg'}];
+const tabs=$('#tabs'),ind=$('#ind');let cur=0;
+RM.forEach((r,i)=>{const b=document.createElement('button');b.role='tab';b.textContent=r.t;b.onclick=()=>setRoom(i);tabs.appendChild(b)});
+function move(){const b=tabs.querySelectorAll('button')[cur];ind.style.left=b.offsetLeft+'px';ind.style.width=b.offsetWidth+'px'}
+function setRoom(i){cur=i;const r=RM[i];$$('#tabs button').forEach((b,j)=>b.setAttribute('aria-selected',j===i));move();
+$('#room').innerHTML='<div class="glass room"><div class="im ph"><img src="images/'+r.i+'" alt="'+r.n+'" onerror="this.remove()"></div><div class="tx"><h3 style="font-size:2.3rem">'+r.n+'</h3><p style="margin:0">'+r.d+'</p><ul>'+r.f.map(x=>'<li>'+x+'</li>').join('')+'</ul><div class="price">₹'+r.p.toLocaleString('en-IN')+'<small> /night</small></div><div><button class="btn" data-r="'+r.n+'">Reserve</button></div></div></div>'}
+$('#room').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(b){$('#dt').textContent='Reserve the '+b.dataset.r;$('#dlg').showModal()}});
+setRoom(0);addEventListener('load',move);addEventListener('resize',move);
+/* dialog */
+const dlg=$('#dlg');$('#cl').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+$('#rf').onsubmit=e=>{toast('Thank you, '+e.target.n.value+'. We will confirm by email shortly.');e.target.reset()};
+/* experiences */
+$('#pv').onclick=()=>$('#scr').scrollBy({left:-320,behavior:'smooth'});$('#nx').onclick=()=>$('#scr').scrollBy({left:320,behavior:'smooth'});
+/* reviews */
+const qs=$$('#qs blockquote'),dots=$('#dots');let qi=0,qt;
+qs.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Review '+(i+1));b.onclick=()=>{show(i);auto()};dots.appendChild(b)});
+function show(i){qi=i;qs.forEach((q,j)=>q.classList.toggle('on',j===i));[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i))}
+function auto(){clearInterval(qt);if(!rm)qt=setInterval(()=>show((qi+1)%qs.length),6500)}
+show(0);auto();$('.rev').addEventListener('mouseenter',()=>clearInterval(qt));$('.rev').addEventListener('mouseleave',auto);
+/* faq */
+$$('.fq button').forEach(b=>b.onclick=()=>{const p=b.parentElement,o=p.classList.toggle('o');b.setAttribute('aria-expanded',o)});
+/* newsletter */
+$('#nl').onsubmit=e=>{e.preventDefault();toast('Welcome aboard. Check your inbox.');e.target.reset()};
+</script>
+</body>
+</html>
